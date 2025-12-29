@@ -1,0 +1,52 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+
+  <!-- Grid lines -->
+  <line x1="100" y1="100" x2="100" y2="350" stroke="#334155" stroke-width="1"/>
+  <line x1="100" y1="350" x2="700" y2="350" stroke="#334155" stroke-width="2"/>
+
+  <!-- Bar chart -->
+  <rect x="130" y="280" width="60" height="70" fill="#475569" rx="4"/>
+  <rect x="220" y="200" width="60" height="150" fill="#f97316" rx="4"/>
+  <rect x="310" y="240" width="60" height="110" fill="#475569" rx="4"/>
+  <rect x="400" y="160" width="60" height="190" fill="#f97316" rx="4"/>
+  <rect x="490" y="220" width="60" height="130" fill="#475569" rx="4"/>
+  <rect x="580" y="180" width="60" height="170" fill="#f97316" rx="4"/>
+
+  <!-- Line chart overlay -->
+  <polyline points="160,290 250,210 340,250 430,170 520,230 610,190"
+            stroke="#f97316" stroke-width="3" fill="none" opacity="0.6"
+            stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Data points -->
+  <circle cx="160" cy="290" r="6" fill="#f97316" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="250" cy="210" r="6" fill="#f97316" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="340" cy="250" r="6" fill="#f97316" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="430" cy="170" r="6" fill="#f97316" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="520" cy="230" r="6" fill="#f97316" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="610" cy="190" r="6" fill="#f97316" stroke="#0f172a" stroke-width="2"/>
+
+  <!-- KPI cards -->
+  <rect x="100" y="40" width="140" height="40" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="120" y="60" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Revenue</text>
+  <text x="120" y="75" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="white">$2.4M</text>
+
+  <rect x="260" y="40" width="140" height="40" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="280" y="60" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Growth</text>
+  <text x="280" y="75" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#f97316">+24%</text>
+
+  <rect x="420" y="40" width="140" height="40" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="440" y="60" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Users</text>
+  <text x="440" y="75" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="white">45.2K</text>
+
+  <!-- Text overlay -->
+  <text x="400" y="420" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="white" text-anchor="middle">Financial Dashboard</text>
+  <text x="400" y="445" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Web · Enterprise Analytics · 2024</text>
+</svg>
