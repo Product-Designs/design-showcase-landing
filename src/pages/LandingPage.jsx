@@ -1,5 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import ArrowIcon from '../components/ArrowIcon';
 import '../styles/LandingPage.css';
+
+// Static project data moved outside component to prevent recreation on each render
+const PROJECTS = [
+  {
+    id: 1,
+    title: 'Urban Transit App',
+    category: 'mobile',
+    description: 'Real-time navigation for city commuters',
+    image: '/assets/project-transit.jpg',
+    year: '2025'
+  },
+  {
+    id: 2,
+    title: 'Financial Dashboard',
+    category: 'web',
+    description: 'Enterprise analytics platform',
+    image: '/assets/project-finance.jpg',
+    year: '2024'
+  },
+  {
+    id: 3,
+    title: 'Health Tracker',
+    category: 'mobile',
+    description: 'Personal wellness monitoring',
+    image: '/assets/project-health.jpg',
+    year: '2024'
+  },
+  {
+    id: 4,
+    title: 'Design System',
+    category: 'system',
+    description: 'Component library for enterprise software',
+    image: '/assets/project-system.jpg',
+    year: '2025'
+  }
+];
 
 /**
  * LandingPage - Product design showcase landing page
@@ -11,44 +48,12 @@ import '../styles/LandingPage.css';
 function LandingPage() {
   const [activeFilter, setActiveFilter] = useState('all');
 
-  const projects = [
-    {
-      id: 1,
-      title: 'Urban Transit App',
-      category: 'mobile',
-      description: 'Real-time navigation for city commuters',
-      image: '/assets/project-transit.jpg',
-      year: '2025'
-    },
-    {
-      id: 2,
-      title: 'Financial Dashboard',
-      category: 'web',
-      description: 'Enterprise analytics platform',
-      image: '/assets/project-finance.jpg',
-      year: '2024'
-    },
-    {
-      id: 3,
-      title: 'Health Tracker',
-      category: 'mobile',
-      description: 'Personal wellness monitoring',
-      image: '/assets/project-health.jpg',
-      year: '2024'
-    },
-    {
-      id: 4,
-      title: 'Design System',
-      category: 'system',
-      description: 'Component library for enterprise software',
-      image: '/assets/project-system.jpg',
-      year: '2025'
-    }
-  ];
-
-  const filteredProjects = activeFilter === 'all'
-    ? projects
-    : projects.filter(p => p.category === activeFilter);
+  // Memoize filtered projects to prevent unnecessary recalculations
+  const filteredProjects = useMemo(() => {
+    return activeFilter === 'all'
+      ? PROJECTS
+      : PROJECTS.filter(p => p.category === activeFilter);
+  }, [activeFilter]);
 
   return (
     <div className="landing-page">
@@ -59,10 +64,20 @@ function LandingPage() {
             <span className="logo-text">Studio</span>
           </a>
           <ul className="nav-links">
-            <li><a href="#work">Work</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact" className="nav-cta">Let's talk</a></li>
+            <li>
+              <a href="#work">Work</a>
+            </li>
+            <li>
+              <a href="#process">Process</a>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#contact" className="nav-cta">
+                Let's talk
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -78,9 +93,9 @@ function LandingPage() {
               that solve real problems
             </h1>
             <p className="hero-description">
-              From research to launch, we partner with ambitious teams
-              to design products people actually want to use. No vanity
-              metrics, just thoughtful solutions.
+              From research to launch, we partner with ambitious teams to design
+              products people actually want to use. No vanity metrics, just
+              thoughtful solutions.
             </p>
             <div className="hero-stats">
               <div className="stat">
@@ -99,9 +114,18 @@ function LandingPage() {
           </div>
           <div className="hero-visual">
             <div className="hero-image-stack">
-              <div className="hero-image-card hero-image-card-1" aria-hidden="true"></div>
-              <div className="hero-image-card hero-image-card-2" aria-hidden="true"></div>
-              <div className="hero-image-card hero-image-card-3" aria-hidden="true"></div>
+              <div
+                className="hero-image-card hero-image-card-1"
+                aria-hidden="true"
+              ></div>
+              <div
+                className="hero-image-card hero-image-card-2"
+                aria-hidden="true"
+              ></div>
+              <div
+                className="hero-image-card hero-image-card-3"
+                aria-hidden="true"
+              ></div>
             </div>
           </div>
         </div>
@@ -118,28 +142,36 @@ function LandingPage() {
               aria-label="Filter projects by category"
             >
               <button
-                className={`filter-btn ${activeFilter === 'all' ? 'is-active' : ''}`}
+                className={`filter-btn ${
+                  activeFilter === 'all' ? 'is-active' : ''
+                }`}
                 onClick={() => setActiveFilter('all')}
                 aria-pressed={activeFilter === 'all'}
               >
                 All
               </button>
               <button
-                className={`filter-btn ${activeFilter === 'mobile' ? 'is-active' : ''}`}
+                className={`filter-btn ${
+                  activeFilter === 'mobile' ? 'is-active' : ''
+                }`}
                 onClick={() => setActiveFilter('mobile')}
                 aria-pressed={activeFilter === 'mobile'}
               >
                 Mobile
               </button>
               <button
-                className={`filter-btn ${activeFilter === 'web' ? 'is-active' : ''}`}
+                className={`filter-btn ${
+                  activeFilter === 'web' ? 'is-active' : ''
+                }`}
                 onClick={() => setActiveFilter('web')}
                 aria-pressed={activeFilter === 'web'}
               >
                 Web
               </button>
               <button
-                className={`filter-btn ${activeFilter === 'system' ? 'is-active' : ''}`}
+                className={`filter-btn ${
+                  activeFilter === 'system' ? 'is-active' : ''
+                }`}
                 onClick={() => setActiveFilter('system')}
                 aria-pressed={activeFilter === 'system'}
               >
@@ -149,7 +181,7 @@ function LandingPage() {
           </div>
 
           <div className="project-grid">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map(project => (
               <article key={project.id} className="project-card">
                 <a href={`/projects/${project.id}`} className="project-link">
                   <div className="project-image">
@@ -167,22 +199,7 @@ function LandingPage() {
                     <p className="project-description">{project.description}</p>
                     <span className="project-cta">
                       View case study
-                      <svg
-                        className="project-arrow"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M3 8h10m0 0L8 3m5 5-5 5"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                      <ArrowIcon />
                     </span>
                   </div>
                 </a>
@@ -198,15 +215,20 @@ function LandingPage() {
           <h2 className="section-title">Our Process</h2>
           <div className="process-grid">
             <div className="process-step">
-              <span className="process-number" aria-hidden="true">01</span>
+              <span className="process-number" aria-hidden="true">
+                01
+              </span>
               <h3 className="process-step-title">Discover</h3>
               <p className="process-step-description">
                 We start by understanding your users, business goals, and
-                technical constraints through research and stakeholder interviews.
+                technical constraints through research and stakeholder
+                interviews.
               </p>
             </div>
             <div className="process-step">
-              <span className="process-number" aria-hidden="true">02</span>
+              <span className="process-number" aria-hidden="true">
+                02
+              </span>
               <h3 className="process-step-title">Define</h3>
               <p className="process-step-description">
                 Synthesize insights into clear problem statements and design
@@ -214,15 +236,19 @@ function LandingPage() {
               </p>
             </div>
             <div className="process-step">
-              <span className="process-number" aria-hidden="true">03</span>
+              <span className="process-number" aria-hidden="true">
+                03
+              </span>
               <h3 className="process-step-title">Design</h3>
               <p className="process-step-description">
-                Create and validate solutions through rapid prototyping,
-                user testing, and iterative refinement.
+                Create and validate solutions through rapid prototyping, user
+                testing, and iterative refinement.
               </p>
             </div>
             <div className="process-step">
-              <span className="process-number" aria-hidden="true">04</span>
+              <span className="process-number" aria-hidden="true">
+                04
+              </span>
               <h3 className="process-step-title">Deliver</h3>
               <p className="process-step-description">
                 Ship production-ready designs with detailed specs, design
@@ -259,16 +285,26 @@ function LandingPage() {
             <div className="footer-col">
               <h4 className="footer-heading">Connect</h4>
               <ul className="footer-links">
-                <li><a href="https://twitter.com/studio">Twitter</a></li>
-                <li><a href="https://dribbble.com/studio">Dribbble</a></li>
-                <li><a href="https://linkedin.com/company/studio">LinkedIn</a></li>
+                <li>
+                  <a href="https://twitter.com/studio">Twitter</a>
+                </li>
+                <li>
+                  <a href="https://dribbble.com/studio">Dribbble</a>
+                </li>
+                <li>
+                  <a href="https://linkedin.com/company/studio">LinkedIn</a>
+                </li>
               </ul>
             </div>
             <div className="footer-col">
               <h4 className="footer-heading">Contact</h4>
               <ul className="footer-links">
-                <li><a href="mailto:hello@studio.com">hello@studio.com</a></li>
-                <li><a href="tel:+15555551234">+1 (555) 555-1234</a></li>
+                <li>
+                  <a href="mailto:hello@studio.com">hello@studio.com</a>
+                </li>
+                <li>
+                  <a href="tel:+15555551234">+1 (555) 555-1234</a>
+                </li>
               </ul>
             </div>
           </div>

@@ -1,0 +1,31 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0f172a"/>
+
+  <!-- Abstract transit lines -->
+  <path d="M 100 150 Q 250 100, 400 150 T 700 150" stroke="#f97316" stroke-width="4" fill="none" opacity="0.6"/>
+  <path d="M 100 250 L 700 250" stroke="#f97316" stroke-width="6" fill="none" opacity="0.8"/>
+  <path d="M 100 350 Q 250 400, 400 350 T 700 350" stroke="#f97316" stroke-width="4" fill="none" opacity="0.6"/>
+
+  <!-- Station dots -->
+  <circle cx="150" cy="250" r="12" fill="#f97316"/>
+  <circle cx="300" cy="250" r="12" fill="#f97316"/>
+  <circle cx="450" cy="250" r="12" fill="#f97316"/>
+  <circle cx="600" cy="250" r="12" fill="#f97316"/>
+
+  <!-- Mobile device frame -->
+  <rect x="300" y="120" width="200" height="380" rx="20" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <rect x="315" y="145" width="170" height="330" rx="8" fill="#0f172a"/>
+
+  <!-- Screen content - simplified map interface -->
+  <circle cx="400" cy="310" r="8" fill="#f97316"/>
+  <line x1="400" y1="310" x2="400" y2="260" stroke="#f97316" stroke-width="3"/>
+  <line x1="400" y1="260" x2="450" y2="240" stroke="#f97316" stroke-width="3" opacity="0.5"/>
+
+  <!-- Status bar -->
+  <rect x="330" y="160" width="140" height="15" fill="#1e293b"/>
+
+  <!-- Text overlay -->
+  <text x="400" y="460" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="white" text-anchor="middle">Urban Transit App</text>
+  <text x="400" y="485" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Mobile · iOS & Android · 2025</text>
+</svg>
